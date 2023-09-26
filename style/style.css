@@ -6,18 +6,27 @@
 html {
   --main-bg-color: rgb(0, 186, 215);
   --secondary-text-color: rgb(80, 80, 80);
+  --box-shadow: #0000004e 3px 3px 4px;
 }
 .container {
   /* width: margin; */
 
-  margin: 0 10vw;
+  margin: 0 5vw;
 }
 
 body {
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: "Playfair Display", serif;
   /* font-family: "Roboto", sans-serif; */
+}
+i {
+  color: #1e3050;
+}
+h2,
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: lighter;
 }
 /* main */
 section.main {
@@ -31,7 +40,7 @@ section.main::after {
   height: 100%;
   position: absolute;
   background-color: var(--main-bg-color);
-  transform: scale(3) rotate(-13deg) translate(-19%, -75%);
+  transform: scale(3) rotate(-10deg) translate(-19%, -76%);
   z-index: -1;
 }
 section.main .intro {
@@ -56,20 +65,17 @@ section.main .image .img-text {
   top: 80%;
   text-align: center;
   width: 100%;
-  font-weight: bold;
 }
 
 section.main .about {
   width: 60%;
   height: 90%;
-  border: black solid;
-  border-width: 1px 1px 1px 0px;
+  box-shadow: var(--box-shadow);
   padding: 20px;
   background-color: white;
 }
 
 section.main .about h2 {
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
 section.main .about p {
@@ -85,6 +91,7 @@ section.main .about .icons a {
   text-decoration: none;
 }
 section.main .about .icons i {
+  font-size: 1.5em;
   color: #1e3050;
   background-color: white;
   margin-left: 10px;
@@ -101,7 +108,7 @@ section.main .about .icons i:hover {
   section.main .intro {
     display: block;
     background-color: white;
-    border: 2px solid black;
+    box-shadow: var(--box-shadow);
     padding: 20px;
   }
   section.main .image {
@@ -144,7 +151,7 @@ section.main .about .icons i:hover {
     margin-top: 5vh;
   }
   section.main .intro {
-    border: none;
+    box-shadow: none;
     background-color: transparent;
     padding: 0;
   }
@@ -174,5 +181,100 @@ section.main .about .icons i:hover {
 
   section.main::after {
     transform: scale(3) rotate(-13deg) translate(43%, -90%);
+  }
+}
+
+/* projects */
+section.projects {
+  margin-top: 12vh;
+}
+section.projects h2 {
+  font-size: 2.2em;
+}
+section.projects .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+section.projects .cards .project-card {
+  width: 30%;
+  margin-bottom: 50px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+section.projects .cards .project-card img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+  z-index: -1;
+  position: relative;
+}
+
+section.projects .cards .project-card .text {
+  background-color: white;
+  padding: 20px 20px 40px 20px;
+  position: relative;
+}
+section.projects .cards .project-card .text::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--main-bg-color);
+  position: absolute;
+  top: -3px;
+  left: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+section.projects .cards .project-card:hover img {
+  transform: scale(1.3);
+}
+section.projects .cards .project-card:hover .text::after {
+  transform: translateX(0);
+}
+
+section.projects .cards .project-card .text .project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+section.projects .cards .project-card .text .project-header h3 {
+  font-size: 1.7em;
+  text-wrap: nowrap;
+  margin-left: 10px;
+}
+section.projects .cards .project-card .text .project-header .icons {
+  display: flex;
+  gap: 10px;
+}
+
+section.projects .cards .project-card .text .project-header .icons i {
+  font-size: 1.5em;
+}
+section.projects .cards .project-card .text .project-header .icons i:hover {
+  background-color: #1e3050;
+  color: white;
+}
+section.projects .cards .project-card .text .description {
+  color: var(--secondary-text-color);
+  font-size: 1em;
+}
+
+@media (max-width: 981px) {
+  section.projects h2 {
+    font-size: 2em;
+  }
+
+  section.projects .cards .project-card {
+    width: 47%;
+  }
+}
+@media (max-width: 665px) {
+  section.projects .cards .project-card {
+    width: 100%;
   }
 }
