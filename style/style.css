@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 html {
-  --main-bg-color: rgb(0, 186, 215);
+  --main-bg-color: rgb(8, 145, 178);
   --secondary-text-color: rgb(80, 80, 80);
   --box-shadow: #0000004e 3px 3px 4px;
 }
@@ -19,6 +19,10 @@ body {
   overflow-x: hidden;
   font-family: "Playfair Display", serif;
   /* font-family: "Roboto", sans-serif; */
+}
+/* body overflow-x hidden doesn't work on mobiles */
+.wrapper {
+  overflow-x: hidden;
 }
 i {
   color: #1e3050;
@@ -276,5 +280,106 @@ section.projects .cards .project-card .text .description {
 @media (max-width: 665px) {
   section.projects .cards .project-card {
     width: 100%;
+  }
+}
+
+/* footer */
+
+footer {
+  background-color: var(--main-bg-color);
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  padding: 50px;
+  gap: 40px;
+  /* max-height: 550px; */
+}
+footer .text {
+}
+footer .text h2 {
+  color: white;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+footer .text p {
+  font-size: 1.6em;
+  color: white;
+  margin-bottom: 10px;
+}
+footer .text i {
+  font-size: 1.4em;
+}
+footer .text .address,
+footer .text .contact-info {
+  margin-top: 30px;
+}
+footer .text .phone,
+footer .text .email {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+footer .text .phone i,
+footer .text .email i {
+  color: white;
+}
+footer .text .icons {
+  margin-top: 30px;
+}
+footer .text .icons i {
+  font-size: 3em;
+  margin-right: 20px;
+}
+footer .text .icons i:hover {
+  color: white;
+}
+footer .image {
+  max-height: 450px;
+}
+footer .image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 981px) {
+  footer {
+    grid-template-columns: 3fr 2fr;
+  }
+  footer .text h2 {
+    font-size: 2.4em;
+  }
+  footer .text p {
+    font-size: 1.2em;
+  }
+  footer .text i {
+    font-size: 1em;
+  }
+  footer .text .phone,
+  footer .text .email {
+    gap: 15px;
+  }
+  footer .image {
+    min-width: 350px;
+  }
+}
+@media (max-width: 665px) {
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    padding: 0;
+  }
+  footer .text {
+    padding: 10px;
+  }
+  footer .text p {
+    font-size: 1em;
+  }
+  footer .image img {
+    width: 100%;
+  }
+  footer .text .icons {
+    text-align: center;
+    margin-right: 15vw;
   }
 }
